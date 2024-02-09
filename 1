@@ -1,0 +1,157 @@
+// Write your code here
+import {Component} from 'react'
+
+import './index.css'
+
+class FruitsCounter extends Component {
+  state = {mango: 0, banana: 0}
+
+  onMangoIncrement = () => {
+    const {mango} = this.state
+    this.setState(prevState => ({mango: prevState.mango + 1}))
+  }
+
+  onBananaIncrement = () => {
+    const {banana} = this.state
+    this.setState(prevState => ({banana: prevState.banana + 1}))
+  }
+
+  render() {
+    const {mango, banana} = this.state
+    return (
+      <div className="bg-container">
+        <div className="fruits-container">
+          <heading className="heading">
+            Bob ate<span className="fruit-count"> {mango} </span>mangoes
+            <span className="fruit-container"> {banana} </span>bananas
+          </heading>
+          <div className="add-fruit-container">
+            <div className="fruit-container">
+              <img
+                className="fruit-img"
+                src="https://assets.ccbp.in/frontend/react-js/mango-img.png"
+                alt="mango"
+              />
+              <button
+                className="button"
+                type="button"
+                onClick={this.onMangoIncrement}
+              >
+                Eat Mango
+              </button>
+            </div>
+            <div className="fruit-container">
+              <img
+                className="fruit-img"
+                alt="banana"
+                src="https://assets.ccbp.in/frontend/react-js/banana-img.png"
+              />
+              <button
+                className="button"
+                type="button"
+                onClick={this.onBananaIncrement}
+              >
+                Eat Banana
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+
+export default FruitsCounter
+
+
+//index.css
+
+.bg-container {
+  background-color: #ffd569;
+  padding: 10px;
+}
+@media screen and (min-width: 768px) {
+  .bg-container {
+    padding: 80px;
+  }
+}
+.fruits-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .fruit-container {
+    padding: 50px;
+  }
+}
+.heading {
+  color: #000000;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 768px) {
+  .heading {
+    font-size: 45px;
+    font-weight: 700;
+  }
+}
+.fruit-count {
+  color: #ffd569;
+}
+.add-fruit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .add-fruit-container {
+    flex-direction: row;
+  }
+}
+.fruit-img {
+  width: 200px;
+  margin-bottom: 15px;
+}
+@media screen and (min-width: 768px) {
+  .fruit-img {
+    width: 250px;
+  }
+}
+.fruit-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .fruit-container {
+    margin: 30px;
+  }
+}
+.button {
+  background-color: #007bff;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  height: 40px;
+  width: 100px;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 768px) {
+  .button {
+    font-size: 16px;
+  }
+}
